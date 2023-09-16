@@ -14,11 +14,7 @@ pipeline {
         stage('Deploy') {
             steps {
                 echo 'Running docker image'
-                sh "docker run -it --rm \
-                    -p 8081:8080 \
-                    -v /path/to/your-data:/data \
-                    -e SQLITE_DATABASE=db_filename.db \
-                    coleifer/sqlite-web"
+                sh "docker run --rm -p 8081:8080 -v /path/to/your-data:/data -e SQLITE_DATABASE=db_filename.db coleifer/sqlite-web"
             }
         }
     }
